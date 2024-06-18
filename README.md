@@ -17,7 +17,9 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
   On this step, I faced an error which is related to OVMF_CODE.fd file location. Solved via symlink:
   sudo ln -s /usr/share/OVMF/OVMF_CODE_4M.fd /usr/share/OVMF/OVMF_CODE.fd
   
-  minikube start --driver=qemu --force    failed with connection refused and apiserver stopped.
+  minikube start --driver=qemu --force    
+  
+  failed with connection refused and apiserver stopped.
 _______________
 switch to kvm2:
 grep -E -q 'vmx|svm' /proc/cpuinfo && echo yes || echo no
@@ -28,4 +30,5 @@ virsh list --all
 virsh net-list --all
 ___________
 minikube start --driver=kvm2 --force
+
 success

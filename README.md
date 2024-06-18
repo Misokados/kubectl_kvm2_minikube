@@ -24,6 +24,7 @@ grep -E -q 'vmx|svm' /proc/cpuinfo && echo yes || echo no
 apt-get install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 
 virsh list --all
+
 virsh net-list --all
 ___________
 minikube start --driver=kvm2 --force
